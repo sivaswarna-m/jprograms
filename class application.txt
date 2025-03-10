@@ -1,0 +1,23 @@
+class application
+{
+    public static void main(String[] args) 
+    {
+     String appname="amazon";
+     long couponcode=4353156;
+     float price=(float)(254.46);
+     int quantity=55;
+     byte deliverycharges=16;
+     short tax=(short)(12.67);
+     double totalprice=(price*quantity)+deliverycharges+tax;
+     double discount=(15/totalprice)*100;
+     float finalprice=(float)(totalprice-discount);
+     boolean deliverystatus=true;
+     System.out.println(totalprice);
+     System.out.println(discount);
+     System.out.println(finalprice);
+     System.out.println(deliverystatus);
+     
+     
+     
+       }
+}
