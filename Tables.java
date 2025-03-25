@@ -10,12 +10,6 @@ class Tables
 				start++;
 			}
 			
-			while(end>=start)
-			{
-				int r=n*end;
-				System.out.println(n+"x"+end+"="+r);
-				end--;
-			}
-
+		
 		}
 	}
