@@ -8,8 +8,8 @@ class Demo4
 		for(int x=0;x<s.length();x++)
 		{
 			
-			ch=s.charAt(x);
-			r=ch+r;//
+			ch=s.charAt(x);//g e
+			r=ch+r;// g eg
 			System.out.println(r);
 
 		}
