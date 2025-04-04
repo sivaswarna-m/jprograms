@@ -13,7 +13,7 @@ class Secmin
 		for(int x=0;x<a.length;x++)
 		{
 				if(min>a[x])
-				secmin=min;
+				secmin=min;//5
 				else if(a[x]<secmin&& a[x]!=min)
 				secmin=a[x];
 				if(min>a[x])

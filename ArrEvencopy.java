@@ -15,7 +15,7 @@ class ArrEvencopy
 				{
 				b[y]=a[x];
 				y++;//1 2 3
-				}
+				}1
 		}
 		for(int x=0;x<a.length;x++)
 		{

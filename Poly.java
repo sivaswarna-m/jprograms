@@ -2,7 +2,7 @@ class Poly
 {
 	public static void main(String[] args)
 	{
-		Poly p=new Poly();
+		Poly p=new Polys();
 		p.m();
 	}
 	void m()

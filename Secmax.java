@@ -2,17 +2,26 @@ class Secmax
 {
 	public static void main(String[] args)
 	{
+		Scanner sc=new Scanner(System.in);
 		Secmax s=new Secmax();
-		int res=s.second(new int[]{1,2,3,4,5},0,0);
+		int max=Integer.MIN_VALUE;
+		int secmax=Integer.MIN_VALUE;
+
+		int res=s.second(new int[]{1,2,3,4,5,8},max,secmax);
 		System.out.println(res);
 	}
 	int second(int a[],int max,int secmax)
 	{
 		for(int x=0;x<a.length;x++)
 		{
-			secmax=max;//0 10 20 30 40 50
+			
 			if(max<a[x])
-				max=a[x];//10 20 30 40 50 90
+			{
+				secmax=max;
+				max=a[x];//1 2 3 4 5
+			}
+			else if(max>a[x] && secmax<a[x])
+				secmax=a[x]; 
 		}
 		return secmax;
 	}

@@ -13,6 +13,8 @@ class Arrsum
 			sum+=a[x];
 		}
 			double avg=sum/a.length;
+			int avg=(int)avg;
+	
 		System.out.println("array elements are");
 
 		for(int x=0;x<a.length;x++)

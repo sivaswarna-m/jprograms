@@ -17,6 +17,8 @@ class Linear
 				c++;
 				break;
 				}
+
+
 		}
 		if(c==0)
 			System.out.println("element not found");
