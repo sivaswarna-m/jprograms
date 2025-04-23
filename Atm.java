@@ -1,122 +1,266 @@
 import java.util.Scanner;
-class Atm
+
+interface Transaction//interface
 {
-	public static void main(String args[])
-	{
-		Scanner sc=new Scanner(System.in);
-		System.out.println("insert the card");
-		Trs t=new Trs();
-		t.tstype();
-	}
+	 void processTransaction();
 }
-class Process
+
+class Account
 {
-	Scanner sc=new Scanner(System.in);
+    private String accountNumber;
+   private String accountType;
+  private  long balance;
+    private int pin;
 
-		
-	public void actype()
-	{
-		long balance =156356;
+    public Account(String accountNumber, String accountType, long balance, int pin) 
+    {
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.balance = balance;
+        this.pin = pin;
+    }
 
+    public String getAccountNumber()
+    {
+        return accountNumber;
+    }
 
-		System.out.println("enter account  type");
-		String atype=sc.nextLine();
-		if(atype.equals("current"))
-		{
-			//System.out.println("enter money");
-			//int money=sc.nextInt();
-			System.out.println("enter the pin number");
-			int pin=sc.nextInt();
-			if(pin==123)
-			{
-				System.out.println("pin entered successfully");
-				System.out.println("your ereceipt is  your current balance is "+ balance );
-			}
-			else
-			{
-				System.out.println("wrong pin");
-			}	
-		}
-		else if(atype.equals("savings"))
-		{
-			System.out.println("enter money");
-			int money=sc.nextInt();
-			System.out.println("enter the pin number");
-			int pin=sc.nextInt();
-			if(pin==123)
-			{
-				System.out.println("pin entered successfully");
-				System.out.println("your ereceipt is  your current balance is "+ balance );
-			}
-			else
-			{
-				System.out.println("wrong pin");
-			}
-		}
-	}
+    public String getAccountType() 
+    {
+        return accountType;
+    }
+
+    public long getBalance() 
+    {
+        return balance;
+    }
+
+    public boolean verifyPin(int enteredPin)
+    {
+        return this.pin == enteredPin;
+    }
+
+    public boolean withdraw(long amount)
+    {
+        if (this.balance >= amount) 
+        {
+            this.balance -= amount;
+            System.out.println("Withdrawal successful Current balance: " + this.balance);
+            return true;
+        } 
+	else
+        {
+            System.out.println("Insufficient balance.");
+            return false;
+        }
+    }
+
+    public void displayBalance() 
+   {
+        System.out.println("Your current balance is: " + this.balance);
+    }
+
+    public void changePin(int newPin)
+    {
+        this.pin = newPin;
+        System.out.println("PIN changed successfully");
+    }
 }
-class Trs extends Process
+
+class Withdraw implements Transaction//inheritance
 {
-	
-	public void tstype()
+    private Account account;
+    private Scanner scanner;
+
+    public Withdraw(Account account, Scanner scanner)//constructor
+    {
+        this.account = account;
+        this.scanner = scanner;
+    }
+
+    @Override
+    public void processTransaction() //poly morphism
+     {
+        System.out.println("Enter amount to withdraw:");
+        long amount = scanner.nextLong();
+        if (account.withdraw(amount)) 
 	{
-		System.out.println("enter Transaction type");
-		String ttype=sc.nextLine();
-		if(ttype.equals("withdraw"))
-		{
-			System.out.println("enter money");
-			int money=sc.nextInt();
-			actype();
-			long balance =156356;
+            System.out.println("Transaction successful");
+        }
+    }
+}
 
+class BalanceEnquiry implements Transaction 
+{
+    private Account account;
 
-			if(balance<money)
-			{
-				System.out.println("insufficient balance");
-			}
-			else
-			{
+    public BalanceEnquiry(Account account) 
+    {
+        this.account = account;
+    }
 
-				System.out.println("your ereceipt is "+money+" transferred successfully your current balance is "+ balance );
-			}
-				
-		}
-		else if(ttype.equals("balance enquiry"))
-		{
-			actype();
-		}
-		else if(ttype.equals("Atm pin change"))
-		{
-			System.out.println("enter phone number");
-			long num=sc.nextLong();
-			if(num<999999999l&&num>9999999999l)
-			{
-				System.out.println("enter a valid number");
-			}
-			else
-			{
-				int otp=sc.nextInt();
-				if(otp==14567)
-				{
-					System.out.println("enter new pin");
-					int pinchn=sc.nextInt();
-					System.out.println("confirm new pin");
-					int pinchn1=sc.nextInt();
-					if(pinchn==pinchn1)
-					{
-						System.out.println("pin changed successfully");
-					}
-					else
-					{
-						System.out.println("enter correct pin");
-					}
-				}
-			}
-		}
-		else if(ttype.equals("mini statement"))
-		{
-			//System.out.println("enter pin");
-			actype();
-		}
-       	}
+    @Override
+    public void processTransaction()
+    {
+        account.displayBalance();
+    }
+}
+
+class PinChange implements Transaction
+{
+    private Account account;
+    private Scanner scanner;
+
+    public PinChange(Account account, Scanner scanner) {
+        this.account = account;
+        this.scanner = scanner;
+    }
+
+    @Override
+    public void processTransaction()
+     {
+        System.out.println("Enter your registered phone number:");
+        long phoneNumber = scanner.nextLong();
+        System.out.println("Enter the OTP received (338413)");
+        int otp = scanner.nextInt();
+        if (otp == 338413)
+        {
+            System.out.println("Enter new PIN:");
+            int newPin = scanner.nextInt();
+            System.out.println("Confirm new PIN:");
+            int confirmNewPin = scanner.nextInt();
+            if (newPin == confirmNewPin) 
+            {
+                account.changePin(newPin);
+            } 
+            else 
+            {
+                System.out.println("enter a matching pin");
+            }
+        } 
+        else
+        {
+            System.out.println("Invalid Otp");
+        }
+    }
+}
+
+class MiniStatement implements Transaction
+{
+    private Account account;
+        public MiniStatement(Account account)
+        {
+        this.account = account;
+        }
+
+    @Override
+    public void processTransaction()
+    {
+        System.out.println("Mini statement ");
+	System.out.println("your current balance is :67358");
+	System.out.println("your  current balance is :57657");
+	System.out.println("your  current balance is :98896");
+	System.out.println("your  current balance is :45428");
+        account.displayBalance();
+    }
+}
+
+class ATM 
+{
+    private Account currentAccount;
+    private Scanner scanner;
+
+    public ATM()
+    {
+        this.scanner = new Scanner(System.in);
+        this.currentAccount = new Account("123456", "savings", 156356, 3384);
+        System.out.println("insert the card");
+	System.out.println("card inserted successfully");
+    }
+
+    public boolean authenticateUser() 
+    {
+        System.out.println("Enter PIN:");
+        int enteredPin = scanner.nextInt();                                                                                                                                                                                                                                                                                                         
+        scanner.nextLine();
+        if (currentAccount.verifyPin(enteredPin)) 
+        {
+            System.out.println("PIN verified successfully");
+            return true;
+        }
+        else 
+        {
+            System.out.println("Invalid PIN");
+            return false;
+        }
+    }
+
+    public void displayMenu() 
+    {
+        System.out.println("\nSelect Transaction:");
+        System.out.println("1. Withdraw");
+        System.out.println("2. Balance Enquiry");
+        System.out.println("3. ATM Pin Change");
+        System.out.println("4. Mini Statement");
+        System.out.println("5. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    public void processOption(int choice) 
+    {
+        Transaction transaction = null;
+        switch (choice) 
+        {
+            case 1:
+                transaction = new Withdraw(currentAccount, scanner);
+                break;
+            case 2:
+                transaction = new BalanceEnquiry(currentAccount);
+                break;
+            case 3:
+                transaction = new PinChange(currentAccount, scanner);
+                break;
+            case 4:
+                transaction = new MiniStatement(currentAccount);
+                break;
+            case 5:
+                System.out.println("you are exited successfully");
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
+        }
+       if (transaction != null)
+        {
+            transaction.processTransaction();
+        }
+    }
+
+    public void process() 
+      {
+        if (authenticateUser())
+        {
+            int choice;
+            do
+	    {
+                displayMenu();
+                choice = scanner.nextInt();
+                scanner.nextLine(); 
+                processOption(choice);
+            } while (choice != 5);
+        } 
+	else 
+	{
+            System.out.println("entered wrong pin");
+        }
+    }
+}
+
+public class ATM_
+   {
+    public static void main(String[] args)
+    {
+        ATM atm = new ATM();
+        atm.process();
+    }
 }

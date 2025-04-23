@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 interface Transaction//interface
 {
-	 void processTransaction();
+	 void processTransaction();//abstract
 }
 
 class Account
@@ -20,7 +20,7 @@ class Account
         this.pin = pin;
     }
 
-    public String getAccountNumber()
+    public String getAccountNumber()//getter-encapsulation
     {
         return accountNumber;
     }
@@ -85,6 +85,7 @@ class Withdraw implements Transaction//inheritance
         long amount = scanner.nextLong();
         if (account.withdraw(amount)) 
 	{
+		
             System.out.println("Transaction successful");
         }
     }
@@ -115,17 +116,9 @@ class PinChange implements Transaction
         this.account = account;
         this.scanner = scanner;
     }
-
-    @Override
-    public void processTransaction()
-     {
-        System.out.println("Enter your registered phone number:");
-        long phoneNumber = scanner.nextLong();
-        System.out.println("Enter the OTP received (338413)");
-        int otp = scanner.nextInt();
-        if (otp == 338413)
-        {
-            System.out.println("Enter new PIN:");
+	public void call()
+	{
+		System.out.println("Enter new PIN:");
             int newPin = scanner.nextInt();
             System.out.println("Confirm new PIN:");
             int confirmNewPin = scanner.nextInt();
@@ -136,32 +129,55 @@ class PinChange implements Transaction
             else 
             {
                 System.out.println("enter a matching pin");
+			 call();//recursion
             }
+	}
+
+    @Override
+    public void processTransaction()
+     {
+        System.out.println("Enter your registered phone number:");
+        long phoneNumber = scanner.nextLong();
+        System.out.println("Enter the OTP received (338413)");
+        int otp = scanner.nextInt();
+        if (otp == 338413)
+        {
+		call();
         } 
         else
         {
             System.out.println("Invalid Otp");
+		processTransaction();
         }
     }
 }
-
 class MiniStatement implements Transaction
 {
     private Account account;
+    private Scanner scanner;
         public MiniStatement(Account account)
         {
         this.account = account;
+	this.scanner=scanner;
         }
-
+	
     @Override
     public void processTransaction()
     {
+	/*long amount = scanner.nextLong();
+	if(account.withdraw(amount)==false)
+	{ */
         System.out.println("Mini statement ");
 	System.out.println("your current balance is :67358");
 	System.out.println("your  current balance is :57657");
 	System.out.println("your  current balance is :98896");
 	System.out.println("your  current balance is :45428");
         account.displayBalance();
+	/*}
+	else
+	{
+		System.out.println("Mini statement can not be generated ");
+	}*/
     }
 }
 
@@ -191,7 +207,7 @@ class ATM
         else 
         {
             System.out.println("Invalid PIN");
-            return false;
+           return authenticateUser();//recursion
         }
     }
 
@@ -256,7 +272,7 @@ class ATM
     }
 }
 
-public class ATM
+public class ATM_
    {
     public static void main(String[] args)
     {
