@@ -11,6 +11,7 @@ class Collect_priorityqueue
 	a.add("1ig0");
 	a.add("100ghg0");
 	a.add("1ygiy");
+	a.add(null);
 	//a.add(23.4);
 	//a.add('x');
 	//a.add("hello");
@@ -26,11 +27,11 @@ class Collect_priorityqueue
 
 	System.out.println(a.contains('x'));//gives true is list contains the element else false
 
-	a.add(4,"1");//adds value at given index
+	//a.add(4,"1");//doesnt support
 
 	//System.out.println(a.isEmpty());//gives true if list is empty else false
 
-	System.out.println(a.size());
+	//System.out.println(a.size());
 	System.out.println(a);
 	}
 }

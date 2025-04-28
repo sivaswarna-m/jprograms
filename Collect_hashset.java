@@ -14,6 +14,8 @@ class Collect_hashset
 	a.add('x');
 	a.add("hello");
 	a.add(false);
+	a.add(null);
+	a.add(0);
 	System.out.println(a);
 
 	//a.remove(10);//value

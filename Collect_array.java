@@ -14,6 +14,8 @@ class Collect_array
 	a.add('x');
 	a.add("hello");
 	a.add(false);
+	a.add(null);
+	a.add(0);
 	a.remove(2);//index value
 
 	//a.addAll(b);//adds the all elements (another list) you want to add
