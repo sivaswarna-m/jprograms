@@ -11,6 +11,7 @@ class Collect_hashset
 	a.add(10);
 	a.add(30);
 	a.add(23.4);
+	a.add(30);
 	a.add('x');
 	a.add("hello");
 	a.add(false);
@@ -32,7 +33,7 @@ class Collect_hashset
 	
 	System.out.println(a.isEmpty());//gives true if list is empty else false
 	
-	System.out.println(a.size());
-	System.out.println(a);
+	//System.out.println(a.size());
+	//System.out.println(a);
 	}
 }

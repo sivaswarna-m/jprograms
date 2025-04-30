@@ -5,10 +5,11 @@ class Collect_array
 	{
 	ArrayList a=new ArrayList();
 	ArrayList b=new ArrayList();
-	b.add(20);
-	b.add("hi");
+	//b.add(20);
+	//b.add("hi");
 	a.add(20);
 	a.add(10);
+	a.add(30);
 	a.add(30);
 	a.add(23.4);
 	a.add('x');
@@ -16,7 +17,7 @@ class Collect_array
 	a.add(false);
 	a.add(null);
 	a.add(0);
-	a.remove(2);//index value
+	//a.remove(2);//index value
 
 	//a.addAll(b);//adds the all elements (another list) you want to add
 
@@ -31,6 +32,8 @@ class Collect_array
 	System.out.println(a.isEmpty());//gives true if list is empty else false
 
 	System.out.println(a.size());	
+	
 	System.out.println(a);
+	
 	}
 }
