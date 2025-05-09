@@ -13,7 +13,7 @@ class Strrev
 			rev=rev+ch;
 		}
 		System.out.println(rev.equals(s)?"palindrome":"not a palindrome");
-		System.out.println(rev.equalsIgnoreCase(s)?"palindrome":"not a palindrome");
+		//System.out.println(rev.equalsIgnoreCase(s)?"palindrome":"not a palindrome");
 
 	}
 }

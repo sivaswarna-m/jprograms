@@ -9,7 +9,7 @@ class Abstract
 }
  abstract class Parent
 {
-	public abstract static void m(); 
+	public abstract  void m(); 
 	public void m1()
 	{
 		System.out.println("parent");

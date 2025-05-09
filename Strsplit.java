@@ -10,8 +10,7 @@ class Strsplit
 		for(String t:str)
 		{
 			System.out.println(t);
-			//String s2=t+"";
-			//System.out.print(s2+" ");
+			
 		}
 		
 	}

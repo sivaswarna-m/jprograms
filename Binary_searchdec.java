@@ -41,9 +41,8 @@ void binary(int a[])
 			}
 
 	}
-		System.out.println(f+" "+l);
-	/*if(l<f)
-		System.out.println("element not found");*/
+	if(l<f)
+		System.out.println("element not found");
 		
 }
 }

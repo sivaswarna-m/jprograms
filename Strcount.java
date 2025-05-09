@@ -9,6 +9,7 @@ class Strcount
 		int cp=0,sm=0,v=0,c=0,d=0,sp=0,sb=0;
 		for(int x=0;x<s.length();x++)
 		{
+
 			char ch=s.charAt(x);
 			if(ch>='A'&& ch<='Z')
 			{
@@ -43,6 +44,7 @@ class Strcount
 				sb++;
 				//System.out.println(ch);
 			}
+			System.out.println(ch>='A'&&ch<='Z'?cp++&&(ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')?v++:ch>'a'&&ch<='z'
 		}
 			System.out.println("no of capitals are "+cp);			
 			System.out.println("no of small are "+sm);

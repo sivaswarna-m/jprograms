@@ -9,9 +9,6 @@ class Strbinary
 		String s=sc.nextLine();
 		char c[]=s.toCharArray();
 		Arrays.sort(c);
-		/*int f=0;
-		int l=c.length-1;
-		int m=0;*/
 		System.out.println("enter search character");
 		char search=sc.next().charAt(0);
 		Strbinary bi=new Strbinary();

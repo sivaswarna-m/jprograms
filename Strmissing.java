@@ -7,12 +7,11 @@ class Strmissing
 		System.out.println("enter");
 		String s=sc.nextLine();
 			
-			 for(int x=0;x<s.length();x++)
-			 {
+			for(char y='a';y<='z';y++)
+			{
 				int count=0;
 
-			    for(char y='a';y<='z';y++)
-
+			    for(int x=0;x<s.length();x++)
 			    {
 				char ch=s.charAt(x);
 
@@ -23,7 +22,7 @@ class Strmissing
 				}
 			    }
 			    if(count==0)
-				System.out.println(ch);
+				System.out.println(y);
 
 			}
 	}

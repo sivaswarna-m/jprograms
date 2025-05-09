@@ -16,5 +16,7 @@ class StrEqual
 
 		System.out.println(s1==s2?"equal":"not equal");
 		System.out.println(s1.equals(s2)?"equal":"not equal");
+		
+		
 	}
 }

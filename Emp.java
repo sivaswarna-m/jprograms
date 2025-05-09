@@ -13,7 +13,7 @@ class Emp
 	}
 	public String toString()
 	{
-		return eid+" "+dep+" "+name+" "+salary;
+		return eid+" "+ mkp[l+" "+name+" "+salary;
 	}
 	public static void main(String []args)
 	{

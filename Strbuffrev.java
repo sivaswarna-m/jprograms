@@ -12,6 +12,6 @@ class Strbuffrev
 		System.out.println(sb);
 		String rev=sb.toString();
 		System.out.println(s1.equals(rev)?"palindrome":"not a palindrome");
-		//System.out.println(sb.contentEqual(s1)?"palindrome":"not a palindrome");
+		//System.out.println(sb.contentEquals(s1)?"palindrome":"not a palindrome");
 	}
 }

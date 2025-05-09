@@ -11,7 +11,7 @@ class Collect_priorityqueue
 	a.add("1ig0");
 	a.add("100ghg0");
 	a.add("1ygiy");
-	a.add(null);
+	//a.add(null);//doesnt allow null values
 	//a.add(23.4);
 	//a.add('x');
 	//a.add("hello");

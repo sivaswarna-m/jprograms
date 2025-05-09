@@ -12,17 +12,19 @@ class Strrevstr
 		{	
 			//System.out.println(s1[x]);
 			String s3=s1[x];
-			char ch=s3.charAt(x);
-			if(x!=0&&x!=s3.length-1)
+			for(int y=0;y<s3.length();y++)
 			{
+				char ch=s3.charAt(y);
+				if(y!=0&&y!=s3.length()-1)
+				{
 				s2=Character.toLowerCase(ch);
 				s3[x]=s2;
-			}
-			else
-			{
+				}
+				else
+				{
 				s2=Character.toUpperCase(ch);
 				s3[x]=s2;
-			}
+				}
 		}
 		System.out.println(s3);
 	}

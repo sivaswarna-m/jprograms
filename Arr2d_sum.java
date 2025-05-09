@@ -31,7 +31,7 @@ class Arr2d_sum
 			int row_sum=0;
 			for(int c=0;c<a[r].length;c++)
 			{
-				//System.out.print(a[r][c]+" ");
+				System.out.print(a[r][c]+" ");
 				sum+=a[r][c];
 				row_sum+=a[r][c];
 				

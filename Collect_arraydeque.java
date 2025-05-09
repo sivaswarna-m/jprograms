@@ -25,7 +25,8 @@ class Collect_arraydeque
 	a.addAll(b);
 			
 			System.out.println(a.contains(20));
-	a.add(1,45);
+	//a.add(1,45);//not there
+			
 		System.out.println(a);
 	}
 }

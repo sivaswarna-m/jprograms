@@ -34,9 +34,9 @@ class Arr2dp
 
 		for(int r=0;r<a.length;r++)
 		{
-				int t=0;
+
 			for(int c=0;c<a[r].length;c++)
-			{	ct=0;t=a[r][c];
+			{	ct=0;
 				System.out.print(a[r][c]+" ");
 				for(int x=1;x<=a[r][c];x++)
 				{
